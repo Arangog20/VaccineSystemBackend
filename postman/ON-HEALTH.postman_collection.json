@@ -1,0 +1,341 @@
+{
+	"info": {
+		"_postman_id": "b94850ba-5b3d-4c2a-8ce0-4450ba3e2eb3",
+		"name": "ON-HEALTH",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33481513",
+		"_collection_link": "https://www.postman.com/red-flare-845361/workspace/public-manuela/collection/33481513-b94850ba-5b3d-4c2a-8ce0-4450ba3e2eb3?action=share&source=collection_link&creator=33481513"
+	},
+	"item": [
+		{
+			"name": "Children",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"name\": \"alejandro\",\r\n\"birthday\": \"2018-03-11\",\r\n\"municipalityId\": 3\r\n  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/children/create",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"children",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find-all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/children/find-all",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"children",
+								"find-all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find-one",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/children/find/123",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"children",
+								"find",
+								"123"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "**Descriptions:**\n\nThe  \nChildren entity manages the registration, update, and deletion of children's  \ndata in the vaccination network system. These records are essential for  \nassigning vaccinations to children in the municipalities.\n\n·  \n**Create**\n\nCreates a new child record in the system.  \nEach child is associated with a municipality and contains basic information  \nsuch as name, birthday, municipality, and others.\n\nPurpose: To register a new child in the  \nvaccination network.\n\n·  \n**Find All**\n\nRetrieves a list of all children registered  \nin the system, along with their associated details.\n\nPurpose: To fetch a complete list of  \nchildren for management or reporting purposes.\n\n·  \n**Find One**\n\nRetrieves the details of a specific child  \nby their unique ID.\n\nPurpose: To find information about a  \nspecific child.\n\nEndFragment"
+		},
+		{
+			"name": "Vaccine",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"vacuna2\",\r\n    \"minAge\": 3,\r\n\t\t\"maxAge\": 8\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/vaccine/create",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"vaccine",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addVaccine",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"vaccineName\": \"Jynneos \",\r\n    \"restrictions\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5432/api/v1/vaccine/:childId/vaccines/:vaccineId",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5432",
+							"path": [
+								"api",
+								"v1",
+								"vaccine",
+								":childId",
+								"vaccines",
+								":vaccineId"
+							],
+							"variable": [
+								{
+									"key": "childId",
+									"value": "3"
+								},
+								{
+									"key": "vaccineId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find-all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/vaccine/find-all",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"vaccine",
+								"find-all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find-one",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/vaccine/find/3",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"vaccine",
+								"find",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "The  \nVaccine entity allows for the management of different vaccines, including their  \ncreation, retrieval, updating, and deletion.\n\n**Descriptions:**\n\n·  \n**Create**\n\nCreates a new vaccine in the system,  \nspecifying the name and total quantity available.\n\nPurpose: To add a new vaccine to the  \ninventory of vaccines available for children.\n\n·  \n**Find All**\n\nRetrieves all vaccines currently registered  \nin the system.\n\nPurpose: To get a complete list of all  \navailable vaccines.\n\n·  \n**Find One**\n\nSearches for a specific vaccine by its  \nname.\n\nPurpose: To retrieve information about a  \nspecific vaccine for inventory or management purposes.\n\nEndFragment"
+		},
+		{
+			"name": "Municipality",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"solano\",\r\n\t\"departmentId\":7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/municipality/create",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"municipality",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find-one",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/municipality/find/3",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"municipality",
+								"find",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AgeChilndren",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/municipality/:id/average-age",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"municipality",
+								":id",
+								"average-age"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "The  \nMunicipality entity allows for the creation, retrieval, and management of  \nmunicipalities within the vaccination network system.\n\n**Descriptions:**\n\n·  \n**Create**\n\nCreates a new municipality in the system,  \nspecifying its population and average age.\n\n**Purpose**: To add a municipality to the vaccination network, which is  \nessential for tracking vaccination rates and managing child records.\n\n·  \n**Find One**\n\nRetrieves the details of a specific  \nmunicipality by its ID.\n\n**Purpose**: To find  \ninformation about a particular municipality in the vaccination network.\n\n·  \n**AgeChildren**\n\nDescription: Retrieves the average age of  \npeople registered in a specific municipality.\n\nPurpose: To calculate and return the  \naverage age of the population for reporting or statistical purposes.\n\nEndFragment"
+		},
+		{
+			"name": "Department",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"name\": \"Guainía\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/department/create",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"department",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find-all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/department/find-all",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"department",
+								"find-all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find-one",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/department/find/antioquia",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"department",
+								"find",
+								"antioquia"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "The  \nDepartment entity is used to manage departments in the system, which are  \nhigher-level administrative regions that contain municipalities.\n\n**Descriptions:**\n\n·  \n**Create**\n\nDescription: Creates a new department in  \nthe system with its name.\n\nPurpose: To add a department to the system  \nfor use in managing municipalities and related data.\n\n·  \n**Find ALL**\n\nDescription: Retrieves a list of all  \ndepartments registered in the system.\n\nPurpose: To get a complete list of all  \ndepartments, typically for management or reporting purposes.\n\n·  \n**Find one**\n\nDescription: Searches for a specific  \ndepartment by its name.\n\nPurpose: To retrieve information about a  \nspecific department for management or reporting purposes.\n\nEndFragment"
+		}
+	]
+}

@@ -22,51 +22,129 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+  # On Health API - Vaccination network manager for children.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+  ## Project Description
+  This project is a solution developed in NestJS with a PostgreSQL database to manage the association of vaccination network for children in the different municipalities of the existing departments of the territory. The REST API provides functionalities to create records of vaccines, at what age they are aimed, assign them to registered children, create the municipalities and departments that enter the system, among others.
 
-## Installation
+  ## Features
+
+  - **Children management**: Create a register of children belonging to a municipality.
+  - **Vaccine management**: Create the vaccines that will be destined to be applied to children, with a specific quantity of them.
+  - **Management of municipalities**: Creates the existing municipalities, with their population and average age.
+  - **Management of Departments**: Creates the existing departments in the territory.
+
+
+  ## Main Endpoints
+  ### Children Endpoints (/api/v1/children)
+  **POST** /create: Creates a new children.
+  **GET** /find-all: Gets all existing childrens.
+  **GET** /find/id: Searches for a specific children by his ID.
+  **PUT** /update/id: Updates the information of a children by his ID.
+  **DELETE** /delete/id: Deletes a specific children by his ID.
+
+
+  ### Vaccine Endpoints (/api/v1/vaccine)
+  **POST** /create: Creates a new vaccine with one name and a total of vaccines
+  **GET** /find-all: Gets all registered vaccines.
+  **GET** /find/vaccineName: Searches for a specific vaccines by your vaccine name.
+  **PUT** /update/vaccineName: Updates the information of an vaccines by your vaccine name.
+  **DELETE** /delete/vaccineName: Deletes a specific vaccines by your vaccine name.
+
+  ### Municipality Endpoints (/api/v1/municipality)
+  **POST** /create: Creates a new municipality in the system of vaccination.
+  **GET** /find/id: Searches for a specific municipality by your ID.
+  **GET** /id/average-age: Calculates the average age of the people registered in that municipality, passing previously the id of the municipality.
+
+  ### Departament Endpoints (/api/v1/departament)
+  **POST** /create: Creates a new departament with his name.
+  **GET** /find-all: Gets all registered departaments.
+  **GET** /find/namedepartament: Searches for a specific departament by the departament name.
+
+  ### Skills
+  - TypeScript
+  - NestJs
+  - PostgreSQL
+
+
+## 🛠 Project Set-Up
+
+### Installing NestJs:
+To install NestJs, follow these steps:
+
+1. Open the terminal (It is recommended to use GitBash or your IDE's terminal).
+2. Execute the following command to install NestJs on your device:
 
 ```bash
-$ npm install
+  npm i -g @nestjs/cli
 ```
 
-## Running the app
+### Repository Installation:
+To clone the repository to your local machine and access the project's files, use the following command:
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+  git clone https://github.com/Arangog20/back-onhealth.git
 ```
 
-## Test
+This ensures that the repository is available on your device for you to use its information and work on it.
+
+#### Dependencies used:
+- `@nestjs/mapped-types`: Facilitates the creation of mapped types in NestJS.
+- `@nestjs/swagger`: Provides integration with Swagger to generate automatic API documentation.
+- `class-validator`: Adds validations to TypeScript classes.
+- `class-transformer`: Allows safe and efficient object transformation.
+- `@nestjs/config`: Configuration module for NestJS.
+- `@nestjs/typeorm` & `typeorm`: Packages for interacting with PostgreSQL databases.
+
+#### Install dependencies
+To use the project, we need to install all the necessary libraries and packages for its proper execution.
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+  npm install
 ```
+
+### Running the project
+To run the project, open your console and execute the following command to initialize the project:
+
+```bash
+  npm run start:dev
+```
+
+### Environment variables
+We need to assign values to the environment variables for optimal project execution. In this case, the project's environment variables cover the connection to our database with PostgreSQL.
+
+```bash
+  # .env - CONNECTION in Vercel - TypeORM.
+  DB_USERNAME = 'YOU DB USERNAME'
+  DB_HOST = 'YOUR DB HOST'
+  DB_PASSWORD = 'YOUR DB PASSWORD'
+  DB_NAME = 'YOUR DB NAME'
+
+  DB_PORT = 'YOUR PORT'
+```
+
+### Postman
+You can execute each of the services already established in the project through the endpoints that have been set up in a Postman collection, from creating, editing, deleting, and other actions.
+
+Access the Postman collection:
+- [Postman Collection](https://www.postman.com/red-flare-845361/workspace/public-manuela/collection/33481513-b94850ba-5b3d-4c2a-8ce0-4450ba3e2eb3?action=share&creator=33481513&active-environment=33481513-7dda199c-ec6e-4860-84f4-bec46dd60cb4)
+
+_Reminder: To use it, ensure that the project is running correctly._
+
+### Swagger
+You can execute each of the services established in the project using Swagger. Simply run the project and access a specific route, where you will find each of them and consume the one you require, displaying each option with its details.
+
+```bash
+  http://localhost:3000/api-doc
+```
+
+Or click on this shortcut:
+- [Access the project Swagger](http://localhost:3000/api-doc)
+
 
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
 
 ## License
 

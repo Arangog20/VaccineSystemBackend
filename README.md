@@ -90,7 +90,6 @@ This ensures that the repository is available on your device for you to use its 
 
 #### Dependencies used:
 - `@nestjs/mapped-types`: Facilitates the creation of mapped types in NestJS.
-- `@nestjs/swagger`: Provides integration with Swagger to generate automatic API documentation.
 - `class-validator`: Adds validations to TypeScript classes.
 - `class-transformer`: Allows safe and efficient object transformation.
 - `@nestjs/config`: Configuration module for NestJS.
@@ -130,17 +129,6 @@ Access the Postman collection:
 - [Postman Collection](https://www.postman.com/red-flare-845361/workspace/public-manuela/collection/33481513-b94850ba-5b3d-4c2a-8ce0-4450ba3e2eb3?action=share&creator=33481513&active-environment=33481513-7dda199c-ec6e-4860-84f4-bec46dd60cb4)
 
 _Reminder: To use it, ensure that the project is running correctly._
-
-### Swagger
-You can execute each of the services established in the project using Swagger. Simply run the project and access a specific route, where you will find each of them and consume the one you require, displaying each option with its details.
-
-```bash
-  http://localhost:3000/api-doc
-```
-
-Or click on this shortcut:
-- [Access the project Swagger](http://localhost:3000/api-doc)
-
 
 ## Support
 
